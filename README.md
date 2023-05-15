@@ -11,10 +11,9 @@
 [데이콘 경진대회](https://dacon.io/competitions/official/236097/overview/description)의 데이터셋에 다양한 분석기법을 적용해보았습니다.
 
 ## 배경 및 필요성
-
-These instructions will give you a copy of the project up and running on
-your local machine for development and testing purposes. See deployment
-for notes on deploying the project on a live system.
+자기관리에 대한 트렌드가 발전하는 시대속에서 건강과 운동의 중요성에 대한 인식 증가
+칼로리 관리를 위해 건강 관련 애플리케이션에 대한 관심과 활용도 증가
+칼로리 소모량을 추정하는 AI 모델 개발이 주목받고 있음 
 
 ## 분석목적
 
@@ -25,14 +24,28 @@ Requirements for the software and other tools to build, test and push
 ## DataSet에 대한 소개
 
 ### 데이터 획득
+AI 해커톤 플랫폼 ‘데이콘’의 ‘칼로리 소모량 예측’ 경진대회
 
-A step by step series of examples that tell you how to get a development
-environment running
 ### 데이터 이해
-Say what the step will be
+
+CSV 형식의 7500개의 Train, Test 데이터 
+ID : 샘플 별 고유 id
+Exercise_Duration : 운동 시간(분)
+Body_Temperature(F) : 체온
+BPM : 심박수
+Height(Feet) : 키(피트)
+Height(Remainder_Inches) : 키(피트 계산 후 더해야 할 키)
+Weight(lb) : 몸무게(파운드)
+Weight_Status : 체중 상태
+Gender : 성별
+Age : 나이
+Calories_Burned : 칼로리 소모량(목표 예측값)
 
     Give the example
-And repeat
+
+분석에 직접적으로 활용되지 않는 ‘ID’ 변수 제외
+범주형 변수 : Weight_Status, Gender
+수치형 변수 : 나머지
 
     until finished
 
