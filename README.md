@@ -1,95 +1,47 @@
-# DataMining Project- Team6
+# DataMining Project - Team6
 
 데이터마이닝 팀프로젝트 **6팀** 레포지토리입니다.
+
 <table>
   <tr>
     <td align="center"><a href="http://ivesvh.com"><img src="https://avatars0.githubusercontent.com/u/587016?v=3" width="100px;" alt="양창록"/><br /><sub><b>양창록</b></sub></a><br /> <a href="https://github.com/codesandbox/codesandbox-client/commits?author=CompuIves" title="Documentation">📖</a></td>
     <td align="center"><a href="http://donavon.com"><img src="https://avatars0.githubusercontent.com/u/887639?v=3" width="100px;" alt="오성빈"/><br /><sub><b>오성빈</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=donavon" title="Code">💻</a></td>
     <td align="center"><a href="http://www.jeffallen.io/"><img src="https://avatars0.githubusercontent.com/u/5266810?v=3" width="100px;" alt="안수연"/><br /><sub><b>안수연</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=vueu" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/bengummer"><img src="https://avatars0.githubusercontent.com/u/1089897?v=3" width="100px;" alt="이은재"/><br /><sub><b>이은재</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=bengummer" title="Code">💻</a></td></table>
+    <td align="center"><a href="https://github.com/bengummer"><img src="https://avatars0.githubusercontent.com/u/1089897?v=3" width="100px;" alt="이은재"/><br /><sub><b>이은재</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=bengummer" title="Code">💻</a></td></table>                
 
-주제 : 생체 데이터로부터의 칼로리 소모량 예측
+Repository 방문 횟수
 
-[데이콘 경진대회](https://dacon.io/competitions/official/236097/overview/description)의 데이터셋에 다양한 분석기법을 적용해보았습니다.
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter)](https://hits.seeyoufarm.com)    
 
-## 배경 및 필요성
-자기관리에 대한 트렌드가 발전하는 시대속에서 건강과 운동의 중요성에 대한 인식 증가
+## 01. 프로젝트 개요
+### (1) 프로젝트 주제와 목적
+#### "생체 데이터로부터의 칼로리 소모량 예측"
 
-칼로리 관리를 위해 건강 관련 애플리케이션에 대한 관심과 활용도 증가
+생체 데이터를 활용하여 개인의 칼로리 소모량을 예측하는 것 뿐만 아니라, 여러 전처리 과정과 분석 기법을 통해 다양한 관점의 결과물을 제시하고자 합니다.
 
-칼로리 소모량을 추정하는 AI 모델 개발이 주목받고 있음 
+### (2) 프로젝트의 배경 및 필요성
+* 자기관리에 대한 트렌드가 발전하는 시대속에서 건강과 운동의 중요성에 대한 인식 증가
+
+* 칼로리 관리를 위해 건강 관련 애플리케이션에 대한 관심과 활용도 증가
+
+* 칼로리 소모량을 추정하는 **AI 모델** 개발이 주목받고 있음 
 
 
+## 02. 분석
+### (1) Dataset Info.
 
-## 분석목적
+AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097/overview/description)의 ‘칼로리 소모량 예측’ 경진대회 데이터셋을 활용하였습니다.
 
-Requirements for the software and other tools to build, test and push 
-- [Example 1](https://www.example.com)
-- [Example 2](https://www.example.com)
+### (2) 전처리
 
-## DataSet에 대한 소개
+### (3) 모델링
 
-### 데이터 획득
-데이터 획득 : AI 해커톤 플랫폼 ‘데이콘’의 ‘칼로리 소모량 예측’ 경진대회
+### (4) 후처리
 
-### 데이터 이해
-CSV 형식의 7500개의 Train, Test 데이터 
 
-ID : 샘플 별 고유 id
+범주형 변수 정수형으로 변환
 
-Exercise_Duration : 운동 시간(분)
-
-Body_Temperature(F) : 체온
-
-BPM : 심박수
-
-Height(Feet) : 키(피트)
-
-Height(Remainder_Inches) : 키(피트 계산 후 더해야 할 키)
-
-Weight(lb) : 몸무게(파운드)
-
-Weight_Status : 체중 상태
-
-Gender : 성별
-
-Age : 나이
-
-Calories_Burned : 칼로리 소모량(목표 예측값)
-
-분석에 직접적으로 활용되지 않는 ‘ID’ 변수 제외
-
-범주형 변수 : Weight_Status, Gender
-
-수치형 변수 : 나머지
-
-    Give the example
-And repeat
-
-    until finished
-
-End with an example of getting some data out of the system or using it
-for a little demo
-
-### EDA
-
-기술 통계량(평균, 표준편차, 분포 등) 계산, 데이터를 시각화하여 패턴이나 동향 파악
-
-데이터의 변수 간 상관 관계 조사, 상관 행렬, 산점도 행렬, 히트맵 등을 사용하여 변수 간의 관계를 시각화하고 분석
-
-### 전처리
-
-회귀분석모형 수식을 간단하게 만들기 위해 상수항을 독립변수 데이터에 추가하는 상수항 결합작업 수행
-
-target Y인 Calories_Burned'와 분석하는 데 필요없는 'ID열 제외
-
-범주형 변수인 ‘Weight_Status’와 ‘Gender’ 정수형으로 변환
-
-'Height'값을 inch로 단위 변환하면서 'Height(Remainder_Inches)'와 합침
-
-'Height'와 ‘Weight’를 이용해 체질량지수 'BMI' 변수 추가
-
-'Height', ‘Weight’, 'Age', 'Gender'를 이용해 기초대사율 'BMR' 변수 추가
+체질량지수 'BMI', 기초대사율 'BMR' 변수 추가
 
 히트맵으로 변수간의 상관관계 확인
 
