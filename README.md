@@ -183,7 +183,8 @@ Checks if the best practices and the right coding style has been used.
     Give an example
 ```
 ### 후처리
-Checks if the best practices and the right coding style has been used.
+1. stacking
+2. voting
 
 ### 평가
 > #### 알고리즘1
