@@ -4,10 +4,10 @@
 
 <table>
   <tr>
-    <td align="center"><img src="https://github.com/lej8924/datamining_team6/assets/131632489/f3eda3f7-f227-4bb4-96c4-09fb6b6f7e1a" width="100px;" alt="양창록"/><br /><b>양창록</b><br />산업정보시스템전공<br />20110198</td>
-       <td align="center"><img src="https://github.com/lej8924/datamining_team6/assets/131632489/d8463a63-8eca-4558-a2c8-232bfe6ae773" width="100px;" alt="오성빈"/><br /><b>오성빈</b><br />산업정보시스템전공<br />19102003</td>
-        <td align="center"><img src="https://github.com/lej8924/datamining_team6/assets/131632489/4d8fd099-4e23-4414-b26d-1377eb01db10" width="100px;" alt="안수연"/><br /><b>안수연</b><br />산업정보시스템전공<br />20102031</td>
-    <td align="center"><img src="https://avatars0.githubusercontent.com/u/587016?v=3" width="100px;" alt="이은재"/><br /><b>이은재</b><br />산업정보시스템전공<br />20102040</td></table>                
+    <td align="center"><img src="https://github.com/lej8924/datamining_team6/assets/131632489/f3eda3f7-f227-4bb4-96c4-09fb6b6f7e1a" width="120px;" alt="양창록"/><br /><b>양창록</b><br />산업정보시스템전공<br />20110198</td>
+       <td align="center"><img src="https://github.com/lej8924/datamining_team6/assets/131632489/d8463a63-8eca-4558-a2c8-232bfe6ae773" width="120px;" alt="오성빈"/><br /><b>오성빈</b><br />산업정보시스템전공<br />19102003</td>
+        <td align="center"><img src="https://github.com/lej8924/datamining_team6/assets/131632489/4d8fd099-4e23-4414-b26d-1377eb01db10" width="120px;" alt="안수연"/><br /><b>안수연</b><br />산업정보시스템전공<br />20102031</td>
+    <td align="center"><img src="https://github.com/lej8924/datamining_team6/assets/131632489/f51c9fe4-a0d9-4b99-a3e2-45c830d003c9" width="120px;" alt="이은재"/><br /><b>이은재</b><br />산업정보시스템전공<br />20102040</td></table>                
 
 >레포지토리 방문 횟수<br>
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Flej8924%2Fdatamining_team6%2Fblob%2Fmain%2FREADME.md&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
