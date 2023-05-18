@@ -12,6 +12,8 @@
 >레포지토리 방문 횟수<br>
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Flej8924%2Fdatamining_team6%2Fblob%2Fmain%2FREADME.md&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
+<br>
+
 ## 01. 프로젝트 개요
 
 ### (1) 프로젝트 주제와 목적
@@ -27,6 +29,8 @@
 
 * 칼로리 소모량을 추정하는 **AI 모델** 개발이 주목받고 있음 
 
+<br>
+
 ## 02. 분석
 
 ### (1) 데이터셋 소개
@@ -39,6 +43,8 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
 ### (4) 후처리
 
+<br>
+
 ## 03. 시작 가이드
 
 ### 요구 사항
@@ -47,6 +53,8 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 ```
 Istallation
 ```
+
+<br>
 
 ## 04. Stacks
 
@@ -59,9 +67,13 @@ Istallation
 ### Communication
 ![GoogleMeet](https://img.shields.io/badge/GoogleMeet-00897B?style=for-the-badge&logo=Google%20Meet&logoColor=white)
 
+<br>
+
 ## 05. 라이센스
 
 MIT 라이센스를 따릅니다. 자세한 내용은 `License` 파일을 확인해주세요.
+
+<br>
 
 ## 06. 프로젝트에 기여하기
 
