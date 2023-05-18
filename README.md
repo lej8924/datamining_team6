@@ -47,9 +47,9 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
 ## 03. 시작 가이드
 
-### 요구 사항
+### (1) 요구 사항
 
-### 설치
+### (2) 설치
 ```
 Istallation
 ```
@@ -58,13 +58,13 @@ Istallation
 
 ## 04. Stacks
 
-### Environment
+### (1) Environment
 <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white"> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=gitHub&logoColor=white">
 
-### Development
+### (2) Development
 <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> 
 
-### Communication
+### (3) Communication
 ![GoogleMeet](https://img.shields.io/badge/GoogleMeet-00897B?style=for-the-badge&logo=Google%20Meet&logoColor=white)
 
 <br>
