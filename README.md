@@ -29,7 +29,7 @@
 
 ## 02. 분석
 
-### (1) Dataset Info.
+### (1) 데이터셋 소개
 
 AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097/overview/description)의 ‘칼로리 소모량 예측’ 경진대회 데이터셋을 활용하였습니다.
 
@@ -41,9 +41,9 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
 ## 03. 시작 가이드
 
-### Requirement
+### 요구 사항
 
-### Istallation
+### 설치
 ```
 Istallation
 ```
@@ -59,7 +59,11 @@ Istallation
 ### Communication
 ![GoogleMeet](https://img.shields.io/badge/GoogleMeet-00897B?style=for-the-badge&logo=Google%20Meet&logoColor=white)
 
+## 05. 라이센스
 
-## 05. License
+MIT 라이센스를 따릅니다. 자세한 내용은 `License` 파일을 확인해주세요.
 
-MIT 라이센스를 따릅니다. 자세한 내용은 License 파일을 확인해주세요.
+## 06. 프로젝트에 기여하기
+
+이 프로젝트는 오픈소스입니다. 당신의 기여를 통해 이 프로젝트를 발전시켜 주세요. 자세한 내용은 `Contribute` 파일을 확인해주세요.
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
