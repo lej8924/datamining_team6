@@ -183,7 +183,11 @@ Checks if the best practices and the right coding style has been used.
     Give an example
 ```
 ### 후처리
+
+다양한 모델을 조합하여 예측 결과를 향상시키는 앙상블 기법 적용
+
 1. stacking
+
 2. voting
 
 ### 평가
