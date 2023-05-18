@@ -27,7 +27,6 @@
 
 * 칼로리 소모량을 추정하는 **AI 모델** 개발이 주목받고 있음 
 
-
 ## 02. 분석
 
 ### (1) Dataset Info.
@@ -45,8 +44,9 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 ### Requirement
 
 ### Istallation
-"""
-"""
+```
+Istallation
+```
 
 ## 04. Stacks
 
@@ -59,3 +59,7 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 ### Communication
 ![GoogleMeet](https://img.shields.io/badge/GoogleMeet-00897B?style=for-the-badge&logo=Google%20Meet&logoColor=white)
 
+
+## 05. License
+
+MIT 라이센스를 따릅니다. 자세한 내용은 License 파일을 확인해주세요.
