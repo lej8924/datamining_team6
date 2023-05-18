@@ -65,5 +65,8 @@ MIT 라이센스를 따릅니다. 자세한 내용은 `License` 파일을 확인
 
 ## 06. 프로젝트에 기여하기
 
-이 프로젝트는 오픈소스입니다. 당신의 기여를 통해 이 프로젝트를 발전시켜 주세요. 자세한 내용은 `Contribute` 파일을 확인해주세요.
+이 프로젝트는 오픈소스입니다. 당신의 기여를 통해 이 프로젝트를 발전시켜 주세요.
+
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+
+
