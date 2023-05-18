@@ -78,7 +78,6 @@ for a little demo
 데이터의 변수 간 상관 관계 조사, 상관 행렬, 산점도 행렬, 히트맵 등을 사용하여 변수 간의 관계를 시각화하고 분석
 
 ### 전처리
-전처리에 앞서 shape 확인
 
 회귀분석모형 수식을 간단하게 만들기 위해 상수항을 독립변수 데이터에 추가하는 상수항 결합작업 수행
 
@@ -106,7 +105,7 @@ target Y인 Calories_Burned'와 분석하는 데 필요없는 'ID열 제외
 
 'Height' - 'BMR'
 
-+ __요인분석__ : 어떤 변수들간의 잠재요인(latent factor)에 있어 개별 변수들을 설명하고 있음을 통계적으로 도출하는 분석
++ 요인분석 : 어떤 변수들간의 잠재요인(latent factor)에 있어 개별 변수들을 설명하고 있음을 통계적으로 도출하는 분석
 
 상수항변수와 'BMI'를 포함하여 적합성 검정을 했더니 부적합하여 변수에서 제외
 
@@ -128,7 +127,7 @@ target Y인 Calories_Burned'와 분석하는 데 필요없는 'ID열 제외
 
 x를 스케일링 후 각각 2차원, 3차원으로 시각화 -> 의미 찾아야 함
 
-+ __다중공선성 해결
++ __다중공선성 해결__
   
   분산팽창요인이 매우 크게 나온 변수가 많아 다중공선성을 줄여야 할 것으로 판단
   
@@ -150,13 +149,13 @@ x를 스케일링 후 각각 2차원, 3차원으로 시각화 -> 의미 찾아�
   
   앞선 PCA에서 나온 설명변수를 조금 더 높이고자 polynomial 결합 시행
   
-  __Polynomial(degree = 2)+PCA(n=3)__
+  _Polynomial(degree = 2)+PCA(n=3)_
   
   3, 4개의 요인과 2, 3차원으로 다양한 조합을 시행했으나 3개의 요인으로 줄였던 PCA 값을 2차원으로 Polynomial 결합한 결과 R-squared값도 0.98정도로 높게 유지하면서, p-value가 0.05보다 높게 나온 feature의 갯수도 적어졌기 때문에 이 조합이 Best 조합으로 선정함
   
   + Filter Method 
   
-  filter method는 변수를 미리 설정해놓고 Linear Regression을 실행시키는 방법으로 for문을 돌면서 좋은 결과를 낼 수 있는 변수를 도출해줌 
+  filter method는 변수를 미리 설정해놓고 Linear Regression을 실행시키는 방법으로 for문을 돌면서 좋은 결과를 낼 수 있는 변수를 도출 
   
   그 결과 선택된 네 개의 변수 : 'Age','Exercise_Duration','Gender','Weight_Status'
   
@@ -216,8 +215,11 @@ Add additional notes to deploy this on a live system
 
 ### 시사점
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
-of conduct, and the process for submitting pull requests to us.
+개인의 식습관과 대사율에 대한 통찰력 제공
+
+음식 섭취에 대해 정보에 입각한 선택으로 더 건강한 생활 방식 영위
+
+목표 달성을 위한 맞춤형 피트니스 루틴 개발 가능
 
 ### insights
 
