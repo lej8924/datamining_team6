@@ -64,11 +64,23 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
 ### (1) 요구 사항
 
-### (2) 설치
+* 파이썬 버전 3.7 이상
+* Jupyter Notebook
+* 필요한 패키지
+  * seaborn
+  * statsmedels
+  * factor_analyzer
+  * autogluon
+
+### (2) 설치 및 실행
 ```
-Istallation
+git clone https://github.com/lej8924/datamining_team6.git
+cd datamining_team6
 ```
 
+```
+python code.py
+```
 <br>
 
 ## 04. Stacks
