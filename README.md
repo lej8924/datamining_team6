@@ -76,9 +76,12 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
   
 
 ### (2) EDA
-
-여기에는 x.info()넣어주면 될 듯
-
+<table style="border : none;">
+  <tr>
+  <td><img src="https://github.com/lej8924/datamining_team6/assets/71022086/c6d96afc-30ef-4cb7-93d1-3b841172ca63?"></td>
+    <td><img src="https://github.com/lej8924/datamining_team6/assets/71022086/7250ce88-548d-4c79-8a30-f9a43d850a39"></td>
+  </tr>
+</table>
 
 #### 데이터 가공
 
@@ -106,15 +109,15 @@ x['BMR'] = 10 * x['Weight(lb)'] * 0.453592 + 6.25 * x['Height(inch)'] * 2.54 - 5
 ```
 
 * 데이터 상관관계 분석
-<img src="">
+<img src="https://user-images.githubusercontent.com/71022086/239699439-05e797a3-040a-49c6-8019-3e7d9b4feae5.png" width="50%>
 
 * TSNE
-여기에는 tsne결과사진 넣어주면 될 듯
+<img src="https://user-images.githubusercontent.com/71022086/239699450-a75f5c95-00a1-4a86-a4fe-29541985d001.png">
 
 
 #### 다중공선성 문제 해결
 - 데이터를 따로 처리해주기 전에는 sm.OLS의 **Cond.No. = 1.30e+17**로 매우 높게 나옴
-- 따라서 차원축소 혹은 filter method를 사용하여 다중공선성이 높은 컬럼간의 결합 혹은 몇 가지 
+- 따라서 차원축소 혹은 filter method를 사용하여 다중공선성이 높은 컬럼간의 결합 혹은 몇 가지 컬럼을 선택하기로 
 
 * 차원 축소
 
@@ -122,14 +125,17 @@ x['BMR'] = 10 * x['Weight(lb)'] * 0.453592 + 6.25 * x['Height(inch)'] * 2.54 - 5
     - 요인 수 선택: 스크리도표를 통해 *n_factors = 3* 이 최적의 hyperparameter임을 알게 됨.
     - rotation = "varimax" ,method = "ml"
     - fa_score 계산 후 sm.OLS분석을 실시해봄
-    > fa = FactorAnalyzer(n_factors=3,method ='ml', rotation="varimax")
+    ```python
+    fa = FactorAnalyzer(n_factors=3,method ='ml', rotation="varimax")
+    ```
 
   (2) PCA
      - hyperparameter인 n_components를 3,4 각각으로 나누어 실시해봄
      - 앞선 요인분석에서도 3이 나왔기에 그것을 근거로 함
-     > pca_3 = PCA(n_components=3,random_state=3)
-     >
-     > pca_4 = PCA(n_components=4,random_state=3)
+     ```python
+     pca_3 = PCA(n_components=3,random_state=3)
+     pca_4 = PCA(n_components=4,random_state=3)
+     ```
 
   
 
