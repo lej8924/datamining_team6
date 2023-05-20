@@ -131,7 +131,12 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 |PCA + polynomial|n_component=4,degree = 3|0.911|0|2.50|
 <br>
 
-  
+|모델 앙상블|분석모델|R<sup>2</sup>|MSE|
+|---|---|---|---|
+|X|Linear Regression|0.976|96.33|
+|X|Ridge Regression|0.976|96.32|
+|Stacking|Linear Regression|0.976|95.89|
+|Stacking|Ridge Regression|0.976|95.89|
 
 ## 03. 시작 가이드
 
