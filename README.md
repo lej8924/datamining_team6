@@ -84,37 +84,31 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
   * 차원 축소
   
-    * VIF - Filter Method
+    * Filter Method
 
     * 요인분석
 
     * PCA
+    
+    - 각각의 전처리 경우를 ols를 통해서 성능 비교, 최고 성능 전처리 선택 
 
-* PolynomialFeatures : 부족한 설명 변수의 개수를 늘리기 위해
+* PolynomialFeatures : 부족한 설명 변수의 개수를 늘리기 위함.
 
-  
+* 반올림 : label값이 정수이므로 예측의 정확도를 높이기 위함.
+
 
 ### (3) 모델링
 
-  
 
-* LinearRegression
 
-* Ridge : overfitting을 방지하기 위해
+* 앙상블 - stacking
 
-* 교차검증
+  * 새로운 설명 변수를 만들기 위한 모델 : LinearRegression, Ridge
 
-  
+  * 메타 모델 : Automl 모듈의 TabularPredictor() - 여러 모델들을 비교해서 가장 성능이 좋은 모델을 즘찾아주는 알고리즘
 
-### (4) 후처리
+* 교차검증 
 
-  
-
-* 반올림 : label값이 정수이므로 예측의 정확도를 높이기 
-
-* 모델 앙상블
-
-* Stacking
 
 
 ## :bulb:test 결과
