@@ -82,15 +82,13 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
 * 다중공선성 문제 해결
 
-* VIF 사용
+  * 차원 축소
+  
+    * VIF - Filter Method
 
-* 차원축소법 사용
+    * 요인분석
 
-* 요인분석
-
-* PCA
-
-* RFECV
+    * PCA
 
 * PolynomialFeatures
 
