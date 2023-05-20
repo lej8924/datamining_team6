@@ -90,7 +90,7 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
     * PCA
 
-* PolynomialFeatures
+* PolynomialFeatures : 부족한 설명 변수의 개수를 늘리기 위해
 
   
 
@@ -100,7 +100,7 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
 * LinearRegression
 
-* Ridge
+* Ridge : overfitting을 방지하기 위해
 
 * 교차검증
 
@@ -110,7 +110,7 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
   
 
-* 반올림
+* 반올림 : label값이 정수이므로 예측의 정확도를 높이기 
 
 * 모델 앙상블
 
