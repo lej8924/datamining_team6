@@ -69,30 +69,103 @@
 ### (1) 데이터셋 소개
 
   
+<img src="https://dacon-images.s3.ap-northeast-2.amazonaws.com/dacon20220919.png" width="50%">
 
-AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097/overview/description)의 ‘칼로리 소모량 예측’ 경진대회 데이터셋을 활용하였습니다.
-
-  
-
-### (2) 전처리
+AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097/overview/description)의 *칼로리 소모량 예측* 경진대회 데이터셋을 활용하였습니다.
 
   
+
+### (2) EDA
+
+여기에는 x.info()넣어주면 될 듯
+
+
+#### 데이터 가공
 
 * 범주형 변수 -> 정수형 변수 변환
+```python
+#범주형 변수 처리해주기
+x["Weight_Status"] = x["Weight_Status"].replace(['Normal Weight','Overweight','Obese'],[1,2,3])
+x["Gender"] = x["Gender"].replace(['M','F'],[1,2])
+```
+* 불필요한 column 통합 및 삭제
+```python
+#Height값을 inch로 통합하는데, 소수점 나머지 inch값도 같이 포함시켜줌
+x['Height(inch)'] = x['Height(Feet)'] * 12 + x['Height(Remainder_Inches)']
+# Height는 feet->inch로 변경하였고, remainder_inches는 이제 불필요한 값이므로 데이터프레임에서 삭제해준다
+x = x.drop(['Height(Feet)', 'Height(Remainder_Inches)'], axis=1)
+```
+* 도움이 될 BMI,BMR 컬럼에 추가
+<img src="https://www.diettechafrica.com/wp-content/uploads/2020/05/Body-mass-index.png" width="40%">
 
-* 다중공선성 문제 해결
+```python
+# 키와 체중으로 비만율인 BMI변수 추가해보기
+x['BMI'] = (x['Weight(lb)'] / x['Height(inch)'] ** 2) * 703
+# BMR은 기초대사량인데, 운동과 관련이 있을까 해서 추가함
+x['BMR'] = 10 * x['Weight(lb)'] * 0.453592 + 6.25 * x['Height(inch)'] * 2.54 - 5 * x['Age'] + x['Gender'].apply(lambda x: 5 if x=='M' else -161)
+```
 
-  * 차원 축소
+* 데이터 상관관계 분석
+<img src="">
+
+* TSNE
+여기에는 tsne결과사진 넣어주면 될 듯
+
+
+#### 다중공선성 문제 해결
+- 데이터를 따로 처리해주기 전에는 sm.OLS의 **Cond.No. = 1.30e+17**로 매우 높게 나옴
+- 따라서 차원축소 혹은 filter method를 사용하여 다중공선성이 높은 컬럼간의 결합 혹은 몇 가지 
+
+* 차원 축소
+
+  (1) 요인분석
+    - 요인 수 선택: 스크리도표를 통해 *n_factors = 3* 이 최적의 hyperparameter임을 알게 됨.
+    - rotation = "varimax" ,method = "ml"
+    - fa_score 계산 후 sm.OLS분석을 실시해봄
+    > fa = FactorAnalyzer(n_factors=3,method ='ml', rotation="varimax")
+
+  (2) PCA
+     - hyperparameter인 n_components를 3,4 각각으로 나누어 실시해봄
+     - 앞선 요인분석에서도 3이 나왔기에 그것을 근거로 함
+     > pca_3 = PCA(n_components=3,random_state=3)
+     >
+     > pca_4 = PCA(n_components=4,random_state=3)
+
   
-    * Filter Method
 
-    * 요인분석
+  - 각각의 전처리 경우를 ols를 통해서 성능 비교, 최고 성능 전처리 선택 
+* Filter Method
+- vif함수를 통하여 column을 선택함
+- 선택된 columns : **Age,Exercise_Duration,Gender,Weight_Status**
+```
+1번째 VIF 측정
+Max VIF feature & value : BMR, 4015891.9971667505
+2번째 VIF 측정
+Max VIF feature & value : Body_Temperature(F), 12089.836089534592
+3번째 VIF 측정
+Max VIF feature & value : Weight_Status, 959.8108350380234
+4번째 VIF 측정
+Max VIF feature & value : Weight_Status, 324.28407125332956
+5번째 VIF 측정
+Max VIF feature & value : BPM, 138.26497227573296
+6번째 VIF 측정
+Max VIF feature & value : Exercise_Duration, 18.89230596188942
+7번째 VIF 측정
+Max VIF feature & value : Age, 7.260281236519285
 
-    * PCA
-    
-    - 각각의 전처리 경우를 ols를 통해서 성능 비교, 최고 성능 전처리 선택 
 
-* PolynomialFeatures : 부족한 설명 변수의 개수를 늘리기 위함.
+Age의 vif는 7.26입니다.
+Exercise_Duration의 vif는 4.08입니다.
+Gender의 vif는 5.32입니다.
+Weight_Status의 vif는 5.55입니다.
+```
+
+* PolynomialFeatures
+-  부족한 설명 변수의 개수를 늘리기 위함.
+```python
+poly3 = PolynomialFeatures(degree = 3)
+poly2 = PolynomialFeatures(degree = 2)
+```
 
 * 반올림 : label값이 정수이므로 예측의 정확도를 높이기 위함.
 
