@@ -119,13 +119,16 @@ AI 해커톤 플랫폼 [데이콘](https://dacon.io/competitions/official/236097
 
 ## :bulb:test 결과
 
-|제목|내용|설명|
-|---|---|---|
-|테스트1|*강조1*|테스트3|
-|테스트1|**강조2**|테스트3|
-|테스트1|<span style="color:red">강조3</span>|테스트3|
-
-
+|분석방법|HyperParameter|R<sup>2</sup>|# of(P-value>0.05)|Cond.No.|
+|---|---|---|---|---|
+|Filter Method| - |0.931|0|1.91|
+|요인분석|n_factors=3|0.915|0|1.06|
+|PCA|n_component=3|0.906|0|2.10|
+|PCA|n_component=4|0.911|0|2.50|
+|PCA + polynomial|**<span style="background-color:#fff5b1"> n_component=3,degree = 2 </span>**|0.977|0|13.9|
+|PCA + polynomial|n_component=3,degree = 3|0.979|0|46.9|
+|PCA + polynomial|n_component=4,degree = 2|0.984|0|17.4|
+|PCA + polynomial|n_component=4,degree = 3|0.911|0|2.50|
 <br>
 
   
