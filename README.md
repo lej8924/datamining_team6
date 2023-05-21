@@ -109,9 +109,12 @@ x['BMR'] = 10 * x['Weight(lb)'] * 0.453592 + 6.25 * x['Height(inch)'] * 2.54 - 5
 ```
 
 * 데이터 상관관계 분석
-<img src="https://user-images.githubusercontent.com/71022086/239699439-05e797a3-040a-49c6-8019-3e7d9b4feae5.png" width="50%>
+<img src="https://user-images.githubusercontent.com/71022086/239699439-05e797a3-040a-49c6-8019-3e7d9b4feae5.png" width="50%">
 
 * TSNE
+ - 3차원으로 나타냈을 때 크게 두 개의 군집을 형성하는 것이 보여진다.
+ - 우리의 주관적인 해석으로는 *남자*와 *여자*로 각각 나누어 생각하였다.
+ - ![한국의료재단](https://hworld.org/281)에 따르면, 호흡, 호르몬, 근골격, 지구력 등에서 성별간 운동능력 차이가 존재한다고 하였기 때문이다.
 <img src="https://user-images.githubusercontent.com/71022086/239699450-a75f5c95-00a1-4a86-a4fe-29541985d001.png">
 
 
@@ -141,53 +144,92 @@ x['BMR'] = 10 * x['Weight(lb)'] * 0.453592 + 6.25 * x['Height(inch)'] * 2.54 - 5
 
   - 각각의 전처리 경우를 ols를 통해서 성능 비교, 최고 성능 전처리 선택 
 * Filter Method
-- vif함수를 통하여 column을 선택함
-- 선택된 columns : **Age,Exercise_Duration,Gender,Weight_Status**
-```
-1번째 VIF 측정
-Max VIF feature & value : BMR, 4015891.9971667505
-2번째 VIF 측정
-Max VIF feature & value : Body_Temperature(F), 12089.836089534592
-3번째 VIF 측정
-Max VIF feature & value : Weight_Status, 959.8108350380234
-4번째 VIF 측정
-Max VIF feature & value : Weight_Status, 324.28407125332956
-5번째 VIF 측정
-Max VIF feature & value : BPM, 138.26497227573296
-6번째 VIF 측정
-Max VIF feature & value : Exercise_Duration, 18.89230596188942
-7번째 VIF 측정
-Max VIF feature & value : Age, 7.260281236519285
+  - vif함수를 통하여 column을 선택함
+  - 선택된 columns : **Age,Exercise_Duration,Gender,Weight_Status**
+    ```
+    1번째 VIF 측정
+    Max VIF feature & value : BMR, 4015891.9971667505
+    2번째 VIF 측정
+    Max VIF feature & value : Body_Temperature(F), 12089.836089534592
+    3번째 VIF 측정
+    Max VIF feature & value : Weight_Status, 959.8108350380234
+    4번째 VIF 측정
+    Max VIF feature & value : Weight_Status, 324.28407125332956
+    5번째 VIF 측정
+    Max VIF feature & value : BPM, 138.26497227573296
+    6번째 VIF 측정
+    Max VIF feature & value : Exercise_Duration, 18.89230596188942
+    7번째 VIF 측정
+    Max VIF feature & value : Age, 7.260281236519285
 
 
-Age의 vif는 7.26입니다.
-Exercise_Duration의 vif는 4.08입니다.
-Gender의 vif는 5.32입니다.
-Weight_Status의 vif는 5.55입니다.
-```
-
+    Age의 vif는 7.26입니다.
+    Exercise_Duration의 vif는 4.08입니다.
+    Gender의 vif는 5.32입니다.
+    Weight_Status의 vif는 5.55입니다.
+    ```
+#### R<sup>2</sup>score 높이기
 * PolynomialFeatures
--  부족한 설명 변수의 개수를 늘리기 위함.
+
 ```python
 poly3 = PolynomialFeatures(degree = 3)
 poly2 = PolynomialFeatures(degree = 2)
 ```
 
 * 반올림 : label값이 정수이므로 예측의 정확도를 높이기 위함.
+```python
+Pred1 = np.round(Pred1)
+Pred2 = np.round(Pred2)
+```
 
 
 ### (3) 모델링
 
+* pipeline
+  - 앞선 단계 중 가장 좋은 성능을 낸 pca(n=3),polynomial(d=2)를 pipeline으로 함축적으로 나타낸다.
+  ```python
+  pipeline_LR = Pipeline([
+    ('scaler',StandardScaler()),
+    ('pca',PCA(n_components=3,random_state=3)),
+    ('poly', PolynomialFeatures(degree=2)),
+    ('linear', LinearRegression())])
+    
+  pipeline_Ridge = Pipeline([
+      ('scaler',StandardScaler()),
+      ('pca',PCA(n_components=3,random_state=3)),
+      ('poly', PolynomialFeatures(degree=2)),
+      ('ridge', Ridge())])
+    ```
 
+  
 
 * 앙상블 - stacking
 
   * 새로운 설명 변수를 만들기 위한 모델 : LinearRegression, Ridge
 
-  * 메타 모델 : Automl 모듈의 TabularPredictor() - 여러 모델들을 비교해서 가장 성능이 좋은 모델을 즘찾아주는 알고리즘
+  * Automl 모듈의 TabularPredictor() - 여러 모델들을 비교해서 가장 성능이 좋은 모델을 즘찾아주는 알고리즘
+  ```python
+  stacking = TabularPredictor(label='Calories_Burned', eval_metric='rmse', problem_type='regression').fit(new_train, presets=['best_quality'], num_stack_levels=0)
+  ### rmse측면에서 가장 좋은 성능을 낸 모델인 'WeightedEnsemble_L2' 사용
+  Pred = stacking.predict(NEW, model = 'WeightedEnsemble_L2')
+  ```
 
-* 교차검증 
 
+* *cross val_score*를 활용한 교차검증 
+```python
+scores = np.sqrt(-cross_val_score(pipeline_LR, x,y, cv=5, scoring=custom_scoring_function))
+#Cross-validation RMSE of linear regression: 9.61123741317941
+
+scores = np.sqrt(-cross_val_score(pipeline_Ridge, x,y, cv=5, scoring=custom_scoring_function))
+#Cross-validation RMSE of Ridge regression: 9.611236144803346
+
+scores = np.sqrt(-cross_val_score(pipeline_LR, x_test,y_test, cv=5, scoring=custom_scoring_function))
+#Cross-validation RMSE of linear regression: 9.859088058138038
+
+scores = np.sqrt(-cross_val_score(pipeline_Ridge, x_test,y_test, cv=5, scoring=custom_scoring_function))
+#Cross-validation RMSE of Ridge regression: 9.86044649442146
+
+```
 
 
 ## :bulb:test 결과
