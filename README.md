@@ -216,7 +216,16 @@ Pred2 = np.round(Pred2)
   ### rmse측면에서 가장 좋은 성능을 낸 모델인 'WeightedEnsemble_L2' 사용
   Pred = stacking.predict(NEW, model = 'WeightedEnsemble_L2')
   ```
-
+<table style="border : none;">
+  <tr>
+    <td  align="center">앙상블 이전</td>
+    <td  align="center">앙상블 이후</td>
+  </tr>
+  <tr>
+  <td  align="center"><img src="https://github.com/lej8924/datamining_team6/assets/71022086/dbbc7d32-0948-4b2f-8730-e44e39516881"></td>
+    <td  align="center"><img src="https://github.com/lej8924/datamining_team6/assets/71022086/f5cd89dd-0c29-491f-ad84-5c8772426712"></td>
+  </tr>
+</table>
 
 * *cross val_score*를 활용한 교차검증 
 ```python
@@ -239,7 +248,7 @@ scores = np.sqrt(-cross_val_score(pipeline_Ridge, x_test,y_test, cv=5, scoring=c
 ### 최적의 분석방법을 찾아내기 위한 과정
 
 |분석방법|HyperParameter|R<sup>2</sup>|# of(P-value>0.05)|Cond.No.|
-|---|---|---|---|---|
+|:---:|:---:|:---|:---|:---|
 |Filter Method| - |0.931|0|1.91|
 |요인분석|n_factors=3|0.915|0|1.06|
 |PCA|n_component=3|0.906|0|2.10|
@@ -258,15 +267,17 @@ scores = np.sqrt(-cross_val_score(pipeline_Ridge, x_test,y_test, cv=5, scoring=c
 |**Stacking**|Ridge Regression|0.976|95.89|
 
 ### train dataset 결과
+
 * 위의 pipeline을 train dataset에 적용시켜서 나온 MSE와 R<sup>2</sup> score
 
+![image](https://github.com/lej8924/datamining_team6/assets/71022086/37a25b5b-e955-4853-ac90-e7e15c0c4d4a)
 
 ### test dataset 결과
-* stacking이전 MSE와 R<sup>2</sup> score
-![image](https://github.com/lej8924/datamining_team6/assets/71022086/6c9febcc-34e8-471e-894c-8d775146b979)
-
-* stacking 이후 MSE와 R<sup>2</sup> score
-![image](https://github.com/lej8924/datamining_team6/assets/71022086/8e0d757b-f20c-460f-82d4-6802b3eaf06f)
+<table>
+  <tr><td>stacking이전 MSE와 R<sup>2</sup> score</td><td>stacking 이후 MSE와 R<sup>2</sup> score</td></tr>
+  <tr><td><img src="https://github.com/lej8924/datamining_team6/assets/71022086/6c9febcc-34e8-471e-894c-8d775146b979"></td>
+    <td><img src="https://github.com/lej8924/datamining_team6/assets/71022086/8e0d757b-f20c-460f-82d4-6802b3eaf06f"></td></tr>
+  </table>
 
 ## 03. 시작 가이드
 
