@@ -114,7 +114,7 @@ x['BMR'] = 10 * x['Weight(lb)'] * 0.453592 + 6.25 * x['Height(inch)'] * 2.54 - 5
 * TSNE
  - 3차원으로 나타냈을 때 크게 두 개의 군집을 형성하는 것이 보여진다.
  - 우리의 주관적인 해석으로는 *남자*와 *여자*로 각각 나누어 생각하였다.
- - ![한국의료재단](https://hworld.org/281)에 따르면, 호흡, 호르몬, 근골격, 지구력 등에서 성별간 운동능력 차이가 존재한다고 하였기 때문이다.
+ - [한국의료재단](https://hworld.org/281)에 따르면, 호흡, 호르몬, 근골격, 지구력 등에서 성별간 운동능력 차이가 존재한다고 하였기 때문이다.
 <img src="https://user-images.githubusercontent.com/71022086/239699450-a75f5c95-00a1-4a86-a4fe-29541985d001.png">
 
 
@@ -205,9 +205,12 @@ Pred2 = np.round(Pred2)
 
 * 앙상블 - stacking
 
-  * 새로운 설명 변수를 만들기 위한 모델 : LinearRegression, Ridge
+  - 새로운 설명 변수를 만들기 위한 모델 : LinearRegression, Ridge
 
-  * Automl 모듈의 TabularPredictor() - 여러 모델들을 비교해서 가장 성능이 좋은 모델을 즘찾아주는 알고리즘
+  - Automl 모듈의 TabularPredictor() - 여러 모델들을 비교해서 가장 성능이 좋은 모델을 즘찾아주는 알고리즘
+  - 
+  ![image](https://github.com/lej8924/datamining_team6/assets/71022086/23196bff-7413-4ff9-bbbc-3084f2435db4)
+  
   ```python
   stacking = TabularPredictor(label='Calories_Burned', eval_metric='rmse', problem_type='regression').fit(new_train, presets=['best_quality'], num_stack_levels=0)
   ### rmse측면에서 가장 좋은 성능을 낸 모델인 'WeightedEnsemble_L2' 사용
@@ -232,7 +235,8 @@ scores = np.sqrt(-cross_val_score(pipeline_Ridge, x_test,y_test, cv=5, scoring=c
 ```
 
 
-## :bulb:test 결과
+## :bulb:결과
+### 최적의 분석방법을 찾아내기 위한 과정
 
 |분석방법|HyperParameter|R<sup>2</sup>|# of(P-value>0.05)|Cond.No.|
 |---|---|---|---|---|
@@ -252,6 +256,17 @@ scores = np.sqrt(-cross_val_score(pipeline_Ridge, x_test,y_test, cv=5, scoring=c
 |X|Ridge Regression|0.976|96.32|
 |**Stacking**|Linear Regression|0.976|95.89|
 |**Stacking**|Ridge Regression|0.976|95.89|
+
+### train dataset 결과
+* 위의 pipeline을 train dataset에 적용시켜서 나온 MSE와 R<sup>2</sup> score
+
+
+### test dataset 결과
+* stacking이전 MSE와 R<sup>2</sup> score
+![image](https://github.com/lej8924/datamining_team6/assets/71022086/6c9febcc-34e8-471e-894c-8d775146b979)
+
+* stacking 이후 MSE와 R<sup>2</sup> score
+![image](https://github.com/lej8924/datamining_team6/assets/71022086/8e0d757b-f20c-460f-82d4-6802b3eaf06f)
 
 ## 03. 시작 가이드
 
