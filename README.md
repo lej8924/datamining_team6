@@ -208,8 +208,8 @@ poly2 = PolynomialFeatures(degree = 2)
 |---|---|---|---|
 |X|Linear Regression|0.976|96.33|
 |X|Ridge Regression|0.976|96.32|
-|Stacking|Linear Regression|0.976|95.89|
-|Stacking|Ridge Regression|0.976|95.89|
+|**Stacking**|Linear Regression|0.976|95.89|
+|**Stacking**|Ridge Regression|0.976|95.89|
 
 ## 03. 시작 가이드
 
