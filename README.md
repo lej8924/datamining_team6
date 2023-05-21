@@ -207,7 +207,7 @@ Pred2 = np.round(Pred2)
 
   - 새로운 설명 변수를 만들기 위한 모델 : LinearRegression, Ridge
 
-  - Automl 모듈의 TabularPredictor() - 여러 모델들을 비교해서 가장 성능이 좋은 모델을 즘찾아주는 알고리즘
+  - Automl 모듈의 TabularPredictor() - 여러 모델들을 비교해서 가장 성능이 좋은 모델을 찾아주는 알고리즘
   - 
   ![image](https://github.com/lej8924/datamining_team6/assets/71022086/23196bff-7413-4ff9-bbbc-3084f2435db4)
   
